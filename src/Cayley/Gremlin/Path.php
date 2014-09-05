@@ -9,39 +9,58 @@ class Path extends Statement
         $this->push((string) $graph);
     }
 
-    public function out(Path $predicatePath = null, $tags = null)
+    public function out($predicatePath = null, $tags = null)
     {
-        return $this->bounds('Out', $predicatePath, (array) $tags);
+        return $this->bounds('Out', $predicatePath, $tags);
     }
 
-    public function in(Path $predicatePath = null, $tags = null)
+    public function in($predicatePath = null, $tags = null)
     {
-        return $this->bounds('In', $predicatePath, (array) $tags);
+        return $this->bounds('In', $predicatePath, $tags);
     }
 
-    public function both(Path $predicatePath = null, $tags = null)
+    public function both($predicatePath = null, $tags = null)
     {
-        return $this->bounds('Both', $predicatePath, (array) $tags);
+        return $this->bounds('Both', $predicatePath, $tags);
     }
 
-    protected function bounds($method, Path $predicatePath = null, Array $tags = null)
+    protected function bounds($method, $predicatePath = null, $tags = null)
     {
         if (!$predicatePath && !$tags) {
             $this->push(sprintf('%s()', $method));
-        } else if ($predicatePath && !$tags) {
-            $this->push(sprintf('%s(%s)', $method, $predicatePath));
-        } else if (!$predicatePath && $tags) {
-            $this->push(sprintf('%s(%s)', $method, json_encode($tags)));
+        } else if (!$tags) {
+            $this->push(sprintf(
+                '%s(%s)',
+                $method,
+                $this->formatInputBounds($predicatePath)
+            ));
         } else {
             $this->push(sprintf(
                 '%s(%s, %s)',
                 $method,
-                $predicatePath,
-                json_encode($tags)
+                $this->formatInputBounds($predicatePath),
+                $this->formatInputBounds($tags)
             ));
         }
 
         return $this;
+    }
+
+    private function formatInputBounds($value)
+    {
+        if (is_array($value)) {
+            return json_encode($value);
+        }
+
+        if (is_string($value)) {
+            return '"' . $value . '"';
+        }
+
+        if (!$value) {
+            return 'null';
+        }
+
+        return $value;
     }
 
     public function is($nodes)

@@ -32,11 +32,18 @@ class PathTest extends TestCase
         $this->assertEquals('graph.Out(graph.Vertex())', (string) $path);
     }
 
+    public function testOutWithLabel()
+    {
+        $path = $this->buildPath();
+        $this->assertEquals($path, $path->out(['foo', 'bar'], 'foo'));
+        $this->assertEquals('graph.Out(["foo","bar"], "foo")', (string) $path);
+    }
+
     public function testOutWithLabels()
     {
         $path = $this->buildPath();
         $this->assertEquals($path, $path->out(null, ['foo', 'bar']));
-        $this->assertEquals('graph.Out(["foo","bar"])', (string) $path);
+        $this->assertEquals('graph.Out(null, ["foo","bar"])', (string) $path);
     }
 
     public function testOutWithPredicatePathAndLabels()
