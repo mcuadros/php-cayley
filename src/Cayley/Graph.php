@@ -11,12 +11,7 @@ class Graph extends Statement
 
     public function vertex(Array $nodes = null)
     {
-        $nodesString = '';
-        if ($nodes) {
-            $nodesString = sprintf('"%s"', implode('", "', $nodes));
-        }
-
-        $this->push(sprintf('Vertex(%s)', $nodesString));
+        $this->pushMethodWithListOfStrings('Vertex', $nodes);
 
         return new Path($this);
     }
