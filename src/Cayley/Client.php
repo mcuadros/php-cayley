@@ -3,6 +3,7 @@
 namespace Cayley;
 use Cayley\Response;
 use Cayley\Exception;
+use Cayley\Gremlin\Statement;
 use GuzzleHttp\Client as HttpClient;
 use Exception as BaseException;
 

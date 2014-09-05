@@ -1,6 +1,6 @@
 <?php
 
-namespace Cayley;
+namespace Cayley\Gremlin;
 
 class Path extends Statement
 {

@@ -2,7 +2,7 @@
 
 namespace Cayley\Tests;
 use Cayley\Client;
-use Cayley\Graph;
+use Cayley\Gremlin\Graph;
 
 class ClientTest extends TestCase
 {
@@ -12,8 +12,6 @@ class ClientTest extends TestCase
 
         $graph = new Graph();
         $graph->emit('Hello World');
-
-var_dump((string) $graph);
 
         $result = $cayley->query($graph);
 

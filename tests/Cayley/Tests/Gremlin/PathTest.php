@@ -1,8 +1,8 @@
 <?php
 
 namespace Cayley\Tests;
-use Cayley\Path;
-use Cayley\Graph;
+use Cayley\Gremlin\Path;
+use Cayley\Gremlin\Graph;
 
 class PathTest extends TestCase
 {
