@@ -16,7 +16,7 @@ class ClientTest extends TestCase
         $result = $cayley->query($graph);
 
         $this->assertInstanceOf('Cayley\Response\QueryResult', $result);
-        $this->assertEquals('Hello World', reset($result));
+        $this->assertEquals('Hello World', iterator_to_array($result)[0]);
     }
 
     public function testQueryWithGremlin()
@@ -25,7 +25,7 @@ class ClientTest extends TestCase
         $result = $cayley->queryWithGremlin('g.Emit("Hello World")');
 
         $this->assertInstanceOf('Cayley\Response\QueryResult', $result);
-        $this->assertEquals('Hello World', reset($result));
+        $this->assertEquals('Hello World', iterator_to_array($result)[0]);
     }
 
     /**
