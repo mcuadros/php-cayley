@@ -31,13 +31,17 @@ class Client
         return sprintf(self::BASE_URL_PATTERN, $server, $port);
     }
 
+    public function query(Statement $statement)
+    {
+        return $this->queryWithGremlin((string) $statement);
+    }
+
     public function queryWithGremlin($js)
     {
         $response = $this->doRequest(self::URL_QUERY_GREMLIN, $js);
 
         return new Response\QueryResult($response->json());
     }
-
 
     public function shapeWithGremlin()
     {

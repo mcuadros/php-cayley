@@ -2,9 +2,25 @@
 
 namespace Cayley\Tests;
 use Cayley\Client;
+use Cayley\Graph;
 
 class ClientTest extends TestCase
 {
+    public function testQuery()
+    {
+        $cayley = new Client();
+
+        $graph = new Graph();
+        $graph->emit('Hello World');
+
+var_dump((string) $graph);
+
+        $result = $cayley->query($graph);
+
+        $this->assertInstanceOf('Cayley\Response\QueryResult', $result);
+        $this->assertEquals('Hello World', reset($result));
+    }
+
     public function testQueryWithGremlin()
     {
         $cayley = new Client();
