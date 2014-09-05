@@ -9,19 +9,19 @@ class Path extends Statement
         $this->push((string) $graph);
     }
 
-    public function out(Path $predicatePath = null, Array $tags = null)
+    public function out(Path $predicatePath = null, $tags = null)
     {
-        return $this->bounds('Out', $predicatePath, $tags);
+        return $this->bounds('Out', $predicatePath, (array) $tags);
     }
 
-    public function in(Path $predicatePath = null, Array $tags = null)
+    public function in(Path $predicatePath = null, $tags = null)
     {
-        return $this->bounds('In', $predicatePath, $tags);
+        return $this->bounds('In', $predicatePath, (array) $tags);
     }
 
-    public function both(Path $predicatePath = null, Array $tags = null)
+    public function both(Path $predicatePath = null, $tags = null)
     {
-        return $this->bounds('Both', $predicatePath, $tags);
+        return $this->bounds('Both', $predicatePath, (array) $tags);
     }
 
     protected function bounds($method, Path $predicatePath = null, Array $tags = null)
@@ -44,7 +44,7 @@ class Path extends Statement
         return $this;
     }
 
-    public function is(Array $nodes)
+    public function is($nodes)
     {
         $this->pushMethodWithListOfStrings('Is', $nodes);
 
@@ -58,7 +58,7 @@ class Path extends Statement
         return $this;
     }
 
-    public function tag(Array $tags)
+    public function tag($tags)
     {
         $this->pushMethodWithListOfStrings('Tag', $tags);
 

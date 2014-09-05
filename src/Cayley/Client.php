@@ -3,7 +3,7 @@
 namespace Cayley;
 use Cayley\Response;
 use Cayley\Exception;
-use Cayley\Gremlin\Statement;
+use Cayley\Gremlin;
 use GuzzleHttp\Client as HttpClient;
 use Exception as BaseException;
 
@@ -32,7 +32,12 @@ class Client
         return sprintf(self::BASE_URL_PATTERN, $server, $port);
     }
 
-    public function query(Statement $statement)
+    public function graph()
+    {
+        return new Gremlin\Graph();
+    }
+
+    public function query(Gremlin\Statement $statement)
     {
         return $this->queryWithGremlin((string) $statement);
     }

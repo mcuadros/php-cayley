@@ -11,11 +11,11 @@ class Statement
        $this->statements[] = $statement;
     }
 
-    protected function pushMethodWithListOfStrings($method, Array $strings = null)
+    protected function pushMethodWithListOfStrings($method, $strings = null)
     {
         $formated = '';
         if ($strings) {
-            $formated = sprintf('"%s"', implode('", "', $strings));
+            $formated = sprintf('"%s"', implode('", "', (array) $strings));
         }
 
         $this->push(sprintf('%s(%s)', $method, $formated));

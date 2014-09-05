@@ -9,14 +9,14 @@ class Graph extends Statement
         $this->push('graph');
     }
 
-    public function vertex(Array $nodes = null)
+    public function vertex($nodes = null)
     {
         $this->pushMethodWithListOfStrings('Vertex', $nodes);
 
         return new Vertex($this);
     }
 
-    public function v(Array $nodes = null)
+    public function v($nodes = null)
     {
         return $this->Vertex();
     }

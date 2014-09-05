@@ -51,4 +51,10 @@ class ClientTest extends TestCase
         $this->assertInstanceOf('Cayley\Response\QueryResult', $result);
         $this->assertEquals('Hello World', reset($result));
     }
+
+    public function testGraph()
+    {
+        $cayley = new Client();
+        $this->assertInstanceOf('Cayley\Gremlin\Graph', $cayley->graph());
+    }
 }
