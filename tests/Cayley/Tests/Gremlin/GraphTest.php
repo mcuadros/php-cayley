@@ -21,28 +21,28 @@ class GraphTest extends TestCase
     public function testMorphism()
     {
         $graph = new Graph();
-        $this->assertInstanceOf('Cayley\Gremlin\Path', $graph->morphism());
+        $this->assertInstanceOf('Cayley\Gremlin\Morphism', $graph->morphism());
         $this->assertEquals('graph.Morphism()', (string) $graph);
     }
 
     public function testVertex()
     {
         $graph = new Graph();
-        $this->assertInstanceOf('Cayley\Gremlin\Path', $graph->vertex());
+        $this->assertInstanceOf('Cayley\Gremlin\Vertex', $graph->vertex());
         $this->assertEquals('graph.Vertex()', (string) $graph);
     }
 
     public function testVertexWithNode()
     {
         $graph = new Graph();
-        $this->assertInstanceOf('Cayley\Gremlin\Path', $graph->vertex(['foo']));
+        $this->assertInstanceOf('Cayley\Gremlin\Vertex', $graph->vertex(['foo']));
         $this->assertEquals('graph.Vertex("foo")', (string) $graph);
     }
 
     public function testVertexWithNodes()
     {
         $graph = new Graph();
-        $this->assertInstanceOf('Cayley\Gremlin\Path', $graph->vertex(['foo', 'bar']));
+        $this->assertInstanceOf('Cayley\Gremlin\Vertex', $graph->vertex(['foo', 'bar']));
         $this->assertEquals('graph.Vertex("foo", "bar")', (string) $graph);
     }
 }

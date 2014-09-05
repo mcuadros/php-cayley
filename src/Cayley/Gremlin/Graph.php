@@ -13,7 +13,7 @@ class Graph extends Statement
     {
         $this->pushMethodWithListOfStrings('Vertex', $nodes);
 
-        return new Path($this);
+        return new Vertex($this);
     }
 
     public function v(Array $nodes = null)
@@ -25,7 +25,7 @@ class Graph extends Statement
     {
         $this->push('Morphism()');
 
-        return new Path($this);
+        return new Morphism($this);
     }
 
     public function m()

@@ -108,4 +108,18 @@ class PathTest extends TestCase
         $this->assertEquals($path, $path->union((new Graph())->v()));
         $this->assertEquals('graph.Union(graph.Vertex())', (string) $path);
     }
+
+    public function testFollow()
+    {
+        $path = $this->buildPath();
+        $this->assertEquals($path, $path->follow((new Graph())->m()));
+        $this->assertEquals('graph.Follow(graph.Morphism())', (string) $path);
+    }
+
+    public function testFollowR()
+    {
+        $path = $this->buildPath();
+        $this->assertEquals($path, $path->followR((new Graph())->m()));
+        $this->assertEquals('graph.FollowR(graph.Morphism())', (string) $path);
+    }
 }

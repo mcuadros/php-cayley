@@ -79,16 +79,30 @@ class Path extends Statement
         return $this;
     }
 
-    public function intersect(Path $query)
+    public function intersect(Vertex $query)
     {
         $this->push(sprintf('Intersect(%s)', $query));
 
         return $this;
     }
 
-    public function union(Path $query)
+    public function union(Vertex $query)
     {
         $this->push(sprintf('Union(%s)', $query));
+
+        return $this;
+    }
+
+    public function follow(Morphism $morphism)
+    {
+        $this->push(sprintf('Follow(%s)', $morphism));
+
+        return $this;
+    }
+
+    public function followR(Morphism $morphism)
+    {
+        $this->push(sprintf('FollowR(%s)', $morphism));
 
         return $this;
     }
