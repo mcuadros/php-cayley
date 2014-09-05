@@ -1,0 +1,5 @@
+*.swp
+package.xml
+composer.lock
+phpunit.xml
+/vendor/
