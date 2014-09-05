@@ -1,6 +1,7 @@
 {
     "name": "mcuadros/php-cayley",
     "homepage": "http://github.com/mcuadros/php-cayley",
+    "description": "PHP Wrapper for the Google's Cayley graph database REST interface.",
     "type": "library",
     "license": "MIT",
     "authors": [
