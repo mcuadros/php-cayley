@@ -28,7 +28,7 @@ class Path extends Statement
     {
         if (!$predicatePath && !$tags) {
             $this->push(sprintf('%s()', $method));
-        } else if (!$tags) {
+        } elseif (!$tags) {
             $this->push(sprintf(
                 '%s(%s)',
                 $method,

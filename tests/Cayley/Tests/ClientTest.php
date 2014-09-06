@@ -57,4 +57,26 @@ class ClientTest extends TestCase
         $cayley = new Client();
         $this->assertInstanceOf('Cayley\Gremlin\Graph', $cayley->graph());
     }
+
+    public function testWrite()
+    {
+        $cayley = new Client();
+        $this->assertSame(1, $cayley->write('a', 'b', 'c'));
+    }
+
+    public function testWriteMultiple()
+    {
+        $quads = [[
+            'subject' => 'bar',
+            'predicate' => 'foo',
+            'object' => 'qux'
+        ], [
+            'subject' => 'foo',
+            'predicate' => 'bar',
+            'object' => 'qux'
+        ]];
+
+        $cayley = new Client();
+        $this->assertSame(2, $cayley->writeMultiple($quads));
+    }
 }

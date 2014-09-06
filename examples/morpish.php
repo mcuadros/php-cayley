@@ -16,6 +16,6 @@ $query = $cayley->graph()
     ->all();
 
 $starring = $cayley->query($query);
-foreach($starring as $actor) {
+foreach ($starring as $actor) {
     var_dump($actor['id']);
 }

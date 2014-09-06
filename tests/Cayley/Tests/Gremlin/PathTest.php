@@ -9,6 +9,7 @@ class PathTest extends TestCase
     public function buildPath()
     {
         $graph = new Graph();
+
         return new Path($graph);
     }
 

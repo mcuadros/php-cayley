@@ -12,6 +12,7 @@ class Client
     const BASE_URL_PATTERN = 'http://%s:%d/api/v1/';
     const URL_QUERY_GREMLIN = 'query/gremlin';
     const URL_SHAPE_GREMLIN = 'shape/gremlin';
+    const URL_WRITE = 'write';
 
     private $http;
 
@@ -47,6 +48,31 @@ class Client
         $response = $this->doRequest(self::URL_QUERY_GREMLIN, $js);
 
         return new Response\QueryResult($response->json());
+    }
+
+    public function write($subject, $predicate, $object, $label = null)
+    {
+        $data = [
+            'subject' => $subject,
+            'predicate' => $predicate,
+            'object' => $object
+        ];
+
+        if ($label) {
+            $data['label'] = $label;
+        }
+
+        return $this->writeMultiple([$data]);
+    }
+
+    public function writeMultiple(Array $quads)
+    {
+        $response = $this->doRequest(self::URL_WRITE, json_encode($quads));
+        $result = $response->json();
+
+        list($count) = sscanf($result['result'], 'Successfully wrote %d triples.');
+
+        return $count;
     }
 
     private function doRequest($url, $body)

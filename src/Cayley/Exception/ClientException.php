@@ -3,7 +3,6 @@
 namespace Cayley\Exception;
 use Exception;
 use RuntimeException;
-use GuzzleHttp\Exception\RequestException;
 
 class ClientException extends RuntimeException
 {
