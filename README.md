@@ -5,8 +5,7 @@ PHP Wrapper for the [Google's Cayley](https://github.com/google/cayley) graph da
 
 > Cayley is an open-source graph inspired by the graph database behind [Freebase](http://freebase.com/) and Google's [Knowledge Graph](http://www.google.com/insidesearch/features/search/knowledge.html). Its goal is to be a part of the developer's toolbox where [Linked Data](http://linkeddata.org/) and graph-shaped data (semantic webs, social networks, etc) in general are concerned.
 
-The default query language is based on [Gremlin](http://gremlindocs.com/) based on JavaScript. php-cayley is a replica of the [Gremlin Javascript API](https://github.com/google/cayley/blob/master/docs/GremlinAPI.md) in PHP, all the methods and patterns from Gremlin are aplicable to this library.
-
+The Cayley's default query language is called [Gremlin](http://gremlindocs.com/) based on JavaScript. php-cayley is a replica of this [Gremlin Javascript API](https://github.com/google/cayley/blob/master/docs/GremlinAPI.md) in PHP, all the methods and patterns from Gremlin are applicable to this library.
 
 Requirements
 ------------
@@ -66,7 +65,7 @@ foreach($starring as $actor) {
 
 ```
 
-This examples are based on the data contained in the example database `30kmoviedata.nq.gz`
+These examples are based on the data contained in the example database `30kmoviedata.nq.gz`
 
 For more information please read [Gremlin Javascript API](https://github.com/google/cayley/blob/master/docs/GremlinAPI.md) documentation.
 
