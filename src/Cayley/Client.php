@@ -13,6 +13,7 @@ class Client
     const URL_QUERY_GREMLIN = 'query/gremlin';
     const URL_SHAPE_GREMLIN = 'shape/gremlin';
     const URL_WRITE = 'write';
+    const URL_DELETE = 'delete';
 
     private $http;
 
@@ -71,6 +72,31 @@ class Client
         $result = $response->json();
 
         list($count) = sscanf($result['result'], 'Successfully wrote %d triples.');
+
+        return $count;
+    }
+
+    public function delete($subject, $predicate, $object, $label = null)
+    {
+        $data = [
+            'subject' => $subject,
+            'predicate' => $predicate,
+            'object' => $object
+        ];
+
+        if ($label) {
+            $data['label'] = $label;
+        }
+
+        return $this->deleteMultiple([$data]);
+    }
+
+    public function deleteMultiple(Array $quads)
+    {
+        $response = $this->doRequest(self::URL_DELETE, json_encode($quads));
+        $result = $response->json();
+
+        list($count) = sscanf($result['result'], 'Successfully deleted %d triples.');
 
         return $count;
     }

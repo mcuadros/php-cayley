@@ -79,4 +79,10 @@ class ClientTest extends TestCase
         $cayley = new Client();
         $this->assertSame(2, $cayley->writeMultiple($quads));
     }
+
+    public function testDelete()
+    {
+        $cayley = new Client();
+        $this->assertSame(1, $cayley->delete('a', 'b', 'c'));
+    }
 }
