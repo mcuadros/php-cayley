@@ -49,12 +49,6 @@ class Client
         return new Response\QueryResult($response->json());
     }
 
-    public function shapeWithGremlin()
-    {
-        $response = $this->doRequest(self::URL_SHAPE_GREMLIN, $js);
-        var_dump($response->json());
-    }
-
     private function doRequest($url, $body)
     {
         try {
