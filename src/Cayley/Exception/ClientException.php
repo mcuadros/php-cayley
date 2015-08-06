@@ -1,6 +1,7 @@
 <?php
 
 namespace Cayley\Exception;
+
 use Exception;
 use RuntimeException;
 

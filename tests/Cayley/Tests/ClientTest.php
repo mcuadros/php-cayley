@@ -1,6 +1,7 @@
 <?php
 
 namespace Cayley\Tests;
+
 use Cayley\Client;
 use Cayley\Gremlin\Graph;
 
