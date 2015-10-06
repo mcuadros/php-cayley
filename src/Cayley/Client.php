@@ -25,7 +25,7 @@ class Client
     private function buildHttpClient($server, $port)
     {
         $this->http = new HttpClient([
-            'base_url' => $this->buildBaseURL($server, $port)
+            'base_uri' => $this->buildBaseURL($server, $port)
         ]);
     }
 
@@ -47,8 +47,7 @@ class Client
     public function queryWithGremlin($js)
     {
         $response = $this->doRequest(self::URL_QUERY_GREMLIN, $js);
-
-        return new Response\QueryResult($response->json());
+        return new Response\QueryResult(json_decode($response->getBody(), true));
     }
 
     public function write($subject, $predicate, $object, $label = null)
@@ -69,7 +68,7 @@ class Client
     public function writeMultiple(Array $quads)
     {
         $response = $this->doRequest(self::URL_WRITE, json_encode($quads));
-        $result = $response->json();
+        $result = json_decode($response->getBody(), true);
 
         list($count) = sscanf($result['result'], 'Successfully wrote %d triples.');
 
@@ -94,7 +93,7 @@ class Client
     public function deleteMultiple(Array $quads)
     {
         $response = $this->doRequest(self::URL_DELETE, json_encode($quads));
-        $result = $response->json();
+        $result = json_decode($response->getBody(), true);
 
         list($count) = sscanf($result['result'], 'Successfully deleted %d triples.');
 
