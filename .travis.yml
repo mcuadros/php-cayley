@@ -11,4 +11,4 @@ before_script:
   - phpenv rehash
   - composer --dev --prefer-source --no-interaction install
 
-script: phpunit
+script: vendor/bin/phpunit
