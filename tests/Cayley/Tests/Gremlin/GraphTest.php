@@ -1,6 +1,7 @@
 <?php
 
 namespace Cayley\Tests;
+
 use Cayley\Gremlin\Graph;
 
 class GraphTest extends TestCase

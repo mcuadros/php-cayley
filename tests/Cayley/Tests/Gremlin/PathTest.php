@@ -1,6 +1,7 @@
 <?php
 
 namespace Cayley\Tests;
+
 use Cayley\Gremlin\Path;
 use Cayley\Gremlin\Graph;
 

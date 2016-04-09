@@ -18,7 +18,7 @@ class Graph extends Statement
 
     public function v($nodes = null)
     {
-        return $this->Vertex();
+        return $this->vertex($nodes);
     }
 
     public function morphism()

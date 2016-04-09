@@ -30,7 +30,7 @@ class ClientTest extends TestCase
     }
 
     /**
-     * @expectedException Cayley\Exception\BadRequest
+     * @expectedException \Cayley\Exception\BadRequest
      */
     public function testQueryWithGremlinParserError()
     {
@@ -42,7 +42,7 @@ class ClientTest extends TestCase
     }
 
     /**
-     * @expectedException Cayley\Exception\ClientException
+     * @expectedException \Cayley\Exception\ClientException
      */
     public function testQueryWithGremlinWithIncorrectPort()
     {
