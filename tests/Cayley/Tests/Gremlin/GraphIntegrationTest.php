@@ -1,6 +1,7 @@
 <?php
 
 namespace Cayley\Tests;
+
 use Cayley\Gremlin\Graph;
 
 class GraphIntegrationTest extends TestCase
@@ -23,10 +24,10 @@ class GraphIntegrationTest extends TestCase
 
         $graphB = new Graph();
         $dFollows = $graphB->v('D')->out('follows');
-        $cFollows->intersect($cFollows);
+        $cFollows->intersect($dFollows);
 
         $this->assertEquals(
-            'graph.Vertex().Out("follows").Intersect(graph.Vertex().Out("follows")).All()',
+            'graph.Vertex("C").Out("follows").Intersect(graph.Vertex("D").Out("follows")).All()',
             (string) $cFollows->all()
         );
     }

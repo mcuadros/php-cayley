@@ -1,7 +1,7 @@
 <?php
 
 namespace Cayley\Tests;
-use Cayley\Gremlin\Vertex;
+
 use Cayley\Gremlin\Graph;
 
 class VertexTest extends TestCase

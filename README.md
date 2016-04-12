@@ -10,8 +10,8 @@ The Cayley's default query language is called [Gremlin](http://gremlindocs.com/)
 Requirements
 ------------
 
-* php >=5.4.0
-* guzzlehttp/guzzle ~4.0
+* php >=5.5.0
+* guzzlehttp/guzzle ~6.0
 
 
 Installation
@@ -32,7 +32,7 @@ You can see [the package information on Packagist.](https://packagist.org/packag
 Usage
 -----
 
-### basic example
+### Basic example
 
 ```php
 $cayley = new Cayley\Client();
@@ -41,7 +41,7 @@ $result = $cayley->query($query);
 print_r($result);
 ```
 
-### morphism example
+### Morphism example
 
 ```php
 $cayley = new Cayley\Client();

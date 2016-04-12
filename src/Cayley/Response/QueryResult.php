@@ -1,6 +1,7 @@
 <?php
 
 namespace Cayley\Response;
+
 use ArrayIterator;
 
 class QueryResult extends ArrayIterator
